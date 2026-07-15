@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quito Coffee Roasters - Cafés de Especialidad</title>
+    <link rel="stylesheet" href="CSS/STYLE.CSS">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <h1>Quito Coffee Roasters</h1>
+            <nav aria-label="Navegación principal">
+                <ul>
+                    <li><a href="#catalogo">Catálogo</a></li>
+                    <li><a href="#pedido">Tu Pedido</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" aria-label="Presentación">
+        <div class="hero-content">
+            <h2>El mejor café de especialidad en el Centro Histórico</h2>
+            <blockquote id="quote-container" class="quote-text">
+                <p>"Cargando frase inspiradora sobre el café..."</p>
+                <cite id="quote-author"></cite>
+            </blockquote>
+            <div id="weather-widget" class="weather-widget" aria-live="polite">
+                <i class="fa-solid fa-cloud-sun"></i> 
+                <span id="weather-temp">Cargando clima de Quito...</span>
+            </div>
+        </div>
+    </section>
+
+    <main id="main-content">
+        
+        <section id="catalogo" class="section-container" aria-labelledby="catalogo-title">
+            <h2 id="catalogo-title">Nuestros Cafés de Especialidad</h2>
+            
+            <div class="filters-container">
+                <input type="text" id="search-input" placeholder="Buscar por nombre..." aria-label="Buscar café por nombre">
+                <select id="origin-filter" aria-label="Filtrar por origen">
+                    <option value="">Todos los orígenes</option>
+                    <option value="Ecuador">Ecuador</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Brasil">Brasil</option>
+                    <option value="Etiopía">Etiopía</option>
+                </select>
+            </div>
+
+            <div id="catalog-grid" class="catalog-grid" aria-live="polite">
+                </div>
+        </section>
+
+        <section id="pedido" class="section-container billing-section" aria-labelledby="pedido-title">
+            <h2 id="pedido-title">Calculadora de tu Pedido</h2>
+            <div class="billing-grid">
+                
+                <div class="cart-container">
+                    <h3>Tu Carrito</h3>
+                    <ul id="cart-list" class="cart-list" aria-live="polite">
+                        <li class="empty-cart">El carrito está vacío.</li>
+                    </ul>
+                </div>
+
+                <div class="totals-container">
+                    <h3>Resumen del Pedido</h3>
+                    
+                    <div class="form-group">
+                        <label for="shipping-zone">Zona de entrega en Quito:</label>
+                        <select id="shipping-zone">
+                            <option value="norte">Norte ($2.50)</option>
+                            <option value="centro" selected>Centro ($1.80)</option>
+                            <option value="sur">Sur ($3.00)</option>
+                            <option value="valles">Valles ($3.50)</option>
+                        </select>
+                    </div>
+
+                    <div class="summary-line">
+                        <span>Subtotal:</span>
+                        <span>$<span id="subtotal-val">0.00</span></span>
+                    </div>
+                    <div class="summary-line">
+                        <span>Envío:</span>
+                        <span>$<span id="shipping-val">1.80</span></span>
+                    </div>
+                    <hr>
+                    <div class="summary-line total-line">
+                        <span>Total:</span>
+                        <span>$<span id="total-val">0.00</span></span>
+                    </div>
+
+                    <div class="currency-converter">
+                        <button id="convert-currency-btn" class="btn-secondary">Mostrar Total en EUR (€)</button>
+                        <p id="eur-total-display" class="hidden"></p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contacto" class="section-container" aria-labelledby="contacto-title">
+            <h2 id="contacto-title">Contacto & Pedidos Especiales</h2>
+            <form id="contact-form" novalidate>
+                <div class="form-group">
+                    <label for="form-name">Nombre Completo *</label>
+                    <input type="text" id="form-name" required>
+                    <span class="error-msg" id="error-name"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="form-email">Correo Electrónico *</label>
+                    <input type="email" id="form-email" required>
+                    <span class="error-msg" id="error-email"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="form-phone">Teléfono *</label>
+                    <input type="tel" id="form-phone" required>
+                    <span class="error-msg" id="error-phone"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="form-message">Mensaje / Instrucciones Especiales</label>
+                    <textarea id="form-message" rows="4"></textarea>
+                    <span class="error-msg" id="error-message"></span>
+                </div>
+
+                <button type="submit" class="btn-primary">Enviar Mensaje</button>
+                <div id="form-success-msg" class="success-alert hidden">¡Mensaje enviado con éxito! Nos comunicaremos contigo pronto.</div>
+            </form>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <h4>Contacto</h4>
+                <p><i class="fa-solid fa-location-dot"></i> Centro Histórico, Quito, Ecuador</p>
+                <p><i class="fa-solid fa-phone"></i> (02) 605 5550</p>
+            </div>
+            <div>
+                <h4>Horarios de Atención</h4>
+                <p>Lunes a Viernes: 08:00 AM - 19:00 PM</p>
+                <p>Sábados y Domingos: 09:00 AM - 17:00 PM</p>
+            </div>
+            <div>
+                <h4>Síguenos</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Quito Coffee Roasters. Desarrollado por Karen13oa como parte de la Ruta de la Empleabilidad - ConQuito.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="JS/SCRIPT.JS"></script>
+</body>
+</html>
